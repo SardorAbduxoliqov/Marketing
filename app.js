@@ -10,7 +10,7 @@ const flash = require('connect-flash');
 const User = require('./models/User');
 
 const MONGODB_URI =
-              'mongodb://localhost/marketing';
+              'mongodb+srv://sardornode:davom.1996*@cluster0.sxtoo.mongodb.net/marketing';
 
 const app = express();
 const store = new MongoDBStore({

@@ -1,0 +1,50 @@
+<div id="arrow">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+
+<header id="home">
+    <div class="container">
+        <div class="top-bar">
+            <div class="nav-col">
+                <div class="logo">
+                    <img src="image/" class="img-responsive" alt="">
+                </div>
+                <div class="menu">
+                    <a href="/" class="<%= path === '/' ? 'active' : '' %>">Home</a>
+                    <a href="#why-choose-us">About Us</a>
+                    <a href="#expand">Services</a>
+                    <a href="#project">Project</a>
+                    <a href="#blog">Blog</a>
+                    <% if (!isAuthenticated) { %>
+                        <a href="/login" class="<%= path === '/login' ? 'active' : '' %>">Login</a>
+                        <a href="/signup" class="<%= path === '/signup' ? 'active' : '' %>">Sign Up</a>
+                    <% } else { %>
+                            <form action="/logout" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <button type="submit">Logout</button>
+                            </form>
+                    <% } %>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="cnt-info-col">
+                <a href="tel:33 385 30 02"><span>Call Us:</span>33 385 30 02</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</header>
+<section id="mobile-menu">
+    <div class="container-mobile">
+        <div class="mobile-logo">
+            <img src="image/" class="img-responsive" alt="">
+            <div class="clear"></div>
+        </div> 
+        <div class="cnt-info-col">
+            <button type="button" id="toggle-bar"><i class="fa fa-bars"></i></button>
+        </div>
+        <div class="clear"></div>
+    </div>
+</section>
+
+          

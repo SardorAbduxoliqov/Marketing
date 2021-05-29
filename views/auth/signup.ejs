@@ -1,0 +1,63 @@
+<%- include("../includes/head.ejs") %>
+   <link rel="stylesheet" type="text/css" href="css/registerStyle.css"> 
+<body>
+    <%- include("../includes/navigation.ejs") %>
+    <div class="login-page">
+        
+        <div class="box">
+            <div class="left">
+                <h3>Create Account</h3>
+                <button type="button" class="register-btn">Sign Up</button>
+            </div>
+            <div class="right">
+                <h3>Have an Account ?</h3>
+                <button type="button" class="login-btn"><a href="/login" class="new-a-href">Login</a></button>
+            </div>
+            <div class="form">
+                    <div class="register-form form-hidden">
+                     <h3>Register</h3>
+                     <% if (errorMessage) { %>
+                        <div class="user-message user-message--error"><%= errorMessage %></div>
+                    <% } %>
+                     <form action="/signup" method="POST" novalidate>
+                     <div class="form-group">
+                         <input 
+                         class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : ''%> form-control"
+                         type="email" 
+                         name="email" 
+                         id="email" 
+                         placeholder="Email*"
+                         value="<%= oldInput.email %>"> 
+                     </div>
+                     <div class="form-group">
+                        <input 
+                        class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : ''%> form-control"
+                        type="password" 
+                        name="password" 
+                        id="password"
+                        placeholder="Password*"
+                        value="<%= oldInput.password%>"
+                        >
+                     </div>
+                     <div class="form-group">
+                        <input 
+                         class="<%= validationErrors.find(e => e.param === 'confirmPassword') ? 'invalid' : ''%> form-control"
+                         type="password" 
+                         name="confirmPassword" 
+                         id="confirmPassword"
+                         placeholder="Confirm Password*"
+                         value="<%= oldInput.confirmPassword%>"
+                         >
+                    </div> 
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                     <button type="submit" class="submit-btn">Sign Up</button>
+                    </form>
+                     <p>You have already Account ? | <a href="/login" class="login-btn">Login</a></p>
+                 </div>
+                 
+            </div>
+        </div>
+    </div>
+   
+    <script src="js/script.js"></script>
+ <%- include("../includes/footer.ejs") %>

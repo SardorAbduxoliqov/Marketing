@@ -1,0 +1,49 @@
+<%- include("../includes/head.ejs") %>
+   <link rel="stylesheet" type="text/css" href="css/registerStyle.css"> 
+<body>
+    <%- include("../includes/navigation.ejs") %>
+    <div class="login-page">
+        
+        <div class="box">
+            <div class="left">
+                <h3>Create Account</h3>
+                <button type="button" class="register-btn"><a href="/signup" class="new-a-href">Sign Up</a></button>
+            </div>
+            <div class="right">
+                <h3>Have an Account ?</h3>
+                <button type="button" class="login-btn">Login</button>
+            </div>
+            <div class="form">
+                 <!-- Login form Start -->
+                 <div class="login-form">
+                    <% if (errorMessage) { %>
+                        <div class="user-message user-message--error"><%= errorMessage %></div>
+                    <% } %>
+                     <h3>Reset Password</h3>
+                     <form action="/reset" method="POST">
+                     <div class="form-group">
+                        <input
+                        class="form-control" 
+                        type="email" 
+                        name="email" 
+                        id="email" 
+                        placeholder="Email*">
+                     </div>
+                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                     <button type="submit" class="submit-btn">Reset Password</button>
+                    </form>
+                     <p>You do not have account yet ? | <a href="/signup" class="register-btn">Sign Up</a></p>
+                 </div>
+                 <!-- Login form End -->
+   
+                </div>
+                 <!-- Register form End -->
+   
+                 <!-- Lost Password form Start -->
+                 
+            </div>
+        </div>
+    </div>
+   
+    <script src="js/script.js"></script>
+ <%- include("../includes/footer.ejs") %>

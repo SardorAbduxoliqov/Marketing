@@ -10,8 +10,9 @@ const flash = require('connect-flash');
 const User = require('./models/User');
 
 const MONGODB_URI =
+              // 'mongodb://localhost/marketing';
               'mongodb+srv://sardornode:davom.1996*@cluster0.sxtoo.mongodb.net/marketing';
-
+//rosa unga jahlini chiqarsangiz ham shunaqa bo'lib qolaveradi
 const app = express();
 const store = new MongoDBStore({
   uri: MONGODB_URI,
